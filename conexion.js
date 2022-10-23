@@ -1,3 +1,5 @@
+const app = require('./app');
+const ClienteRutas = require('./rutas/ClienteRutas');
 const mongoose = require("mongoose");
 const database = "Serviplus"
 const username = "admin";

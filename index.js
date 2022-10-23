@@ -2,13 +2,14 @@
 const express = require("express");
 const morgan = require ("morgan");
 const cors = require ("cors");
-const mongoose = require ("mongoose");
+const mongoose = require ("./conexion");
 //CONFIGURACIONES
 const app = express();
 const env = process.env;
 const port = env.PORT || 3000;
 app.use(morgan("dev"));
 app.use(cors());
+app.use(express.json());
 
 //ARRANQUE
 app.listen(port, ()=>{
@@ -17,5 +18,7 @@ app.listen(port, ()=>{
 
 //RUTAS
 app.get("/", (request, response) => {
-    response.send("Hola Mundo");
+    response.send("API Serviplus Iniciado");
 });
+app.use("/clientes", require("./rutas/ClienteRutas"))
+app.post("/guardarclientes", require("./rutas/ClienteRutas"))

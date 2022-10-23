@@ -1,0 +1,9 @@
+const express = require('express');
+const ClienteOperaciones = require("../operaciones/ClienteOperaciones")
+const router = new express.Router();
+
+
+router.get("/", ClienteOperaciones.consultarCliente);
+router.get("/:id", ClienteOperaciones.consultarClientes);
+router.post("/", ClienteOperaciones.crearCliente);
+module.exports = router;
